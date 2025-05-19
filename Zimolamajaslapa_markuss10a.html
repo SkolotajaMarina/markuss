@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8">
+  <title>Zīmola mājaslapa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #d0d8e8;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    .top-image-wrapper {
+      background: linear-gradient(to bottom, #ffffff 0%, #ffffff 60%, #d0d8e8 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 0;
+    }
+
+    .top-image-wrapper img {
+      width: 180px;
+      height: auto;
+      max-width: 90vw;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+
+    .main-layout {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .left-column {
+      flex: 1 1 600px;
+      min-width: 280px;
+    }
+
+    .right-column {
+      flex: 0 0 280px;
+      border-left: 2px solid #aaa;
+      padding-left: 20px;
+      min-width: 280px;
+    }
+
+    .gallery-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .gallery-button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #4b6cb7;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    .gallery-button:hover {
+      background-color: #3a539b;
+    }
+
+    .image-gallery {
+      display: none; /* sākumā paslēpta */
+      flex-direction: row;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .image-gallery img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .section {
+      margin-bottom: 50px;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* Mobilās ierīces */
+    @media (max-width: 768px) {
+      .main-layout {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 10px;
+      }
+
+      .right-column {
+        border-left: none;
+        padding-left: 0;
+        width: 100%;
+        min-width: auto;
+      }
+
+      .left-column {
+        min-width: auto;
+        width: 100%;
+      }
+
+      .gallery-title {
+        text-align: left;
+        margin-top: 20px;
+      }
+
+      .image-gallery {
+        flex-direction: column;
+      }
+
+      .image-gallery img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Augšējā daļa ar logo -->
+  <div class="top-image-wrapper">
+    <img src="SDA.png" alt="SDA Logo">
+  </div>
+
+  <div class="container">
+    <div class="main-layout">
+
+      <!-- Teksta kolonna -->
+      <div class="left-column">
+        <div class="section">
+          <h1>Zīmola vērtības</h1>
+          <p>1. Ilgtspējība – Es izmantoju pārstrādātus materiālus un videi draudzīgas ražošanas metodes, lai mazinātu ietekmi uz dabu.</p>
+          <p>2. Kvalitāte – Apģērbs ir radīts ilgstošai lietošanai, apvienojot izturību ar estētiku.</p>
+          <p>3. Cieņa pret dabu un cilvēkiem – Es radīšu apģērbu, kas tuvina cilvēka un planētas attiecības, veicinot apzinātu patēriņu un dzīvesveidu.</p>
+        </div>
+
+        <div class="section">
+          <h1>Informācija par dizaineri</h1>
+          <p>Mans vārds: Letīcija Ļeonova</p>
+          <p>Nodarbošanās: mūsdienu dejas/hip hop</p>
+          <p>Kas man patīk: māksla, mūzika un ceļojumi</p>
+        </div>
+
+        <div class="section">
+          <h1>Zīmola misija</h1>
+          <p>Pārveidot modes industriju, radot ilgtspējīgu un sirreālu apģērbu no pārstrādātiem materiāliem.</p>
+        </div>
+      </div>
+
+      <!-- Galerijas kolonna -->
+      <div class="right-column">
+        <div class="gallery-title">Tērpa galerija</div>
+        <button class="gallery-button" onclick="toggleGallery()">Skatīt galeriju</button>
+        <div class="image-gallery" id="imageGallery">
+          <img src="IMG-20250518-WA0001.jpg" alt="Attēls 1">
+          <img src="IMG-20250518-WA0002 (1).jpg" alt="Attēls 2">
+          <img src="IMG-20250518-WA0000.jpg" alt="Attēls 3">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function toggleGallery() {
+      const gallery = document.getElementById("imageGallery");
+      if (gallery.style.display === "none" || gallery.style.display === "") {
+        gallery.style.display = "flex";
+      } else {
+        gallery.style.display = "none";
+      }
+    }
+  </script>
+
+  <footer style="text-align: center; padding: 20px; background-color: #f1f1f1; color: grey; font-size: 14px; margin-top: 50px;">
+    Mājaslapas izstrādātājs: Markuss Egils Vanags © 2025
+  </footer>
+
+</body>
+</html>
+
